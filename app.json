@@ -1,0 +1,9 @@
+{
+  "name": "KinCartaContacts",
+  "displayName": "KinCartaContacts",
+  "description": "",
+  "packagerOpts": {
+    "config": "metro.config.js",
+    "sourceExts": ["js", "jsx", "svg", "ts", "tsx"]
+  }
+}
