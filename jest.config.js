@@ -14,5 +14,4 @@ module.exports = {
     '\\.(css|less)$': '<rootDir>/assetsTransformer.js',
   },
   transform: {},
-  transformIgnorePatterns: true,
 }
