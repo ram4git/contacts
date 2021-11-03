@@ -4,7 +4,7 @@ import { formatPhoneNumber } from '@/utils'
 import { useFocusEffect } from '@react-navigation/native'
 import React, { useCallback, useState } from 'react'
 import { FlatList, Image, Text, View } from 'react-native'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import tailwind from 'tailwind-rn'
 
 const ContactDetail = ({ navigation, route }) => {
@@ -19,11 +19,8 @@ const ContactDetail = ({ navigation, route }) => {
     }, [dispatch, route?.params]),
   )
 
-  const currentContact = useSelector(state => state.currentContact)
-
   const contactData = route?.params ?? {}
   const { name = '', largeImageURL, companyName = '' } = contactData
-  console.log({ contactData, currentContact })
 
   const onImageLoadFailure = () => setHasImageLoadFailed(true)
   const HeroSection = () => (

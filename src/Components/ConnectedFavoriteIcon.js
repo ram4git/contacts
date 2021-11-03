@@ -12,6 +12,7 @@ const ConnectedFavoriteIcon = () => {
 
   return (
     <TouchableOpacity
+      testID={'fav-icon-container'}
       onPress={() =>
         dispatch({
           type: actions.TOGGLE_FAVORITE,
@@ -20,6 +21,7 @@ const ConnectedFavoriteIcon = () => {
       }
     >
       <SvgXml
+        testID={`fav-icon-${currentContact.isFavorite ? 'active' : 'inactive'}`}
         xml={StarIcon}
         width={24}
         height={24}

@@ -19,8 +19,6 @@ const Contacts = () => {
   const error = useSelector(state => state.error)
   const currentContact = useSelector(state => state.currentContact)
 
-  console.log({ contacts, isLoading, error, currentContact })
-
   if (isLoading) {
     return (
       <View style={tailwind('flex-1 flex-col justify-center items-center')}>
