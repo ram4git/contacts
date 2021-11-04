@@ -4,6 +4,7 @@ import { formatPhoneNumber } from '@/utils'
 import { useFocusEffect } from '@react-navigation/native'
 import React, { useCallback, useState } from 'react'
 import { FlatList, Image, Text, View } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 import { useDispatch } from 'react-redux'
 import tailwind from 'tailwind-rn'
 
@@ -24,7 +25,7 @@ const ContactDetail = ({ navigation, route }) => {
 
   const onImageLoadFailure = () => setHasImageLoadFailed(true)
   const HeroSection = () => (
-    <View style={tailwind('flex flex-col items-center py-4')}>
+    <View style={tailwind('flex flex-col items-center py-2 overflow-scroll')}>
       <Image
         style={[
           tailwind('w-4/12 rounded-sm mx-4 my-2 flex-grow-0'),
@@ -93,29 +94,28 @@ const ContactDetail = ({ navigation, route }) => {
 
     return (
       <FlatList
+        style={[tailwind('flex-1')]}
         data={details}
+        ListHeaderComponent={() => <HeroSection />}
         renderItem={renderDetail}
         ItemSeparatorComponent={() => (
           <View style={tailwind('flex items-center')}>
             <View style={[tailwind('w-11/12 h-0.5 bg-gray-200')]} />
           </View>
         )}
-        scrollEnabled={false}
+        nestedScrollEnabled
       />
     )
   }
 
   return (
-    <View
-      style={[
-        tailwind('flex-1'),
-        { overflow: 'scroll', showsVerticalScrollIndicator: false },
-      ]}
+    <SafeAreaView
+      style={[tailwind('flex-1')]}
       bounces={false}
+      showsVerticalScrollIndicator={false}
     >
-      <HeroSection />
       <DetailSection />
-    </View>
+    </SafeAreaView>
   )
 }
 

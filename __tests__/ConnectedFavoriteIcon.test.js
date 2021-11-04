@@ -6,7 +6,6 @@ import { Provider } from 'react-redux'
 import ConnectedFavoriteIcon from '../src/Components/ConnectedFavoriteIcon'
 import { actions, store } from '../src/Store'
 
-console.log({ store })
 describe('Navigator', () => {
   it('renders properly and inactive favorite icon by default', () => {
     const { queryByTestId, debug } = render(
